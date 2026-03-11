@@ -1,0 +1,41 @@
+/* shared/theme-toggle-ui.css */
+#themeToggleBtn{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.85);
+  color: #111;
+  font: 600 12px/1 Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+html[data-theme="dark"] #themeToggleBtn{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(15,15,24,.78);
+  color: #f5f5ff;
+}
+
+#themeToggleBtn .dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffcc00;
+  box-shadow: 0 0 0 3px rgba(255,204,0,.20);
+}
+html[data-theme="dark"] #themeToggleBtn .dot{
+  background: #7dd3fc;
+  box-shadow: 0 0 0 3px rgba(125,211,252,.18);
+}
+#themeToggleBtn:focus-visible{
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}

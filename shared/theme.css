@@ -1,0 +1,35 @@
+/* shared/theme.css
+   - Default: light
+   - Dark overrides via [data-theme="dark"]
+*/
+:root{
+  color-scheme: light;
+}
+
+/* Optional: smooth transition */
+html.theme-anim, html.theme-anim *{
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease, fill .25s ease, stroke .25s ease;
+}
+
+/* DARK THEME (variables only) */
+html[data-theme="dark"]{
+  color-scheme: dark;
+
+  --color-bg: #0b0b10;
+  --color-white: #0f0f18;
+  --color-subcolor: #e9e9f1;
+  --color-subcolor2: #9cc3ff;
+  --color-subcolor3: #6ea8ff;
+
+  --color-primary: #ff5a4a; /* keep accent */
+  --color-secondary: #e9e9f1;
+
+  /* optional neutrals */
+  --line: rgba(255,255,255,.14);
+}
+
+/* a few generic fixes for dark */
+html[data-theme="dark"] body{
+  background: var(--color-bg);
+  color: var(--color-subcolor);
+}
