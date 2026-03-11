@@ -2382,12 +2382,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const descEl = document.getElementById('contactModalDesc');
   const valueEl = document.getElementById('contactModalValue');
   const guideEl = document.getElementById('contactModalGuide');
+  const toast = document.getElementById('copyToast');
 
   if (!modal || !confirmBtn) return;
 
   let currentAction = '';
   let currentCopy = '';
   let lastFocusedEl = null;
+  let toastTimer = null;
+
+  function showToast(message = '복사 완료') {
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.add('is-show');
+    toast.setAttribute('aria-hidden', 'false');
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('is-show');
+      toast.setAttribute('aria-hidden', 'true');
+    }, 1600);
+  }
 
   function openModal({ type, label, value, action, copy }) {
     lastFocusedEl = document.activeElement;
@@ -2450,15 +2466,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function copyAndOpen() {
-    await copyText(currentCopy);
+    const copied = await copyText(currentCopy);
 
-    if (currentAction) {
-      window.location.href = currentAction;
+    if (copied) {
+      showToast('복사 완료');
+    } else {
+      showToast('복사 실패');
     }
 
+    closeModal();
+
     setTimeout(() => {
-      closeModal();
-    }, 120);
+      if (currentAction) {
+        window.location.href = currentAction;
+      }
+    }, 180);
   }
 
   document.addEventListener('click', (e) => {

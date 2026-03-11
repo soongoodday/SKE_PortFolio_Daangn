@@ -483,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 6) 핵심: [복사하고 열기]
   okBtn.addEventListener("click", async () => {
     const ok = await copyText(pending.copy);
-    showToast(ok ? `${pending.label} 복사 완료! 📋` : `복사 실패 😢`);
+    showToast(ok ? `${pending.label} 복사 완료` : `복사 실패`);
 
     // ✅ 앱 열기: 새 탭 느낌으로 막히는 경우가 있어 "동일 탭"으로 호출
     // - 모바일은 보통 바로 열림

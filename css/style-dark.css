@@ -8015,3 +8015,53 @@ flex:1;
 }
 
 }
+
+
+
+
+/* ==========================
+COPY TOAST
+========================== */
+
+.copy-toast{
+position:fixed;
+left:50%;
+bottom:32px;
+transform:translateX(-50%) translateY(16px);
+z-index:13000;
+
+padding:12px 18px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.12);
+
+background:
+linear-gradient(180deg, rgba(22,22,34,.96), rgba(12,12,20,.94));
+
+box-shadow:
+0 12px 30px rgba(0,0,0,.35),
+inset 0 1px 0 rgba(255,255,255,.05);
+
+font-family:'NeoDonggeunmo';
+font-size:.82rem;
+line-height:1;
+color:var(--white);
+
+opacity:0;
+pointer-events:none;
+transition:
+opacity .22s ease,
+transform .22s ease;
+}
+
+.copy-toast.is-show{
+opacity:1;
+transform:translateX(-50%) translateY(0);
+}
+
+@media (max-width:640px){
+.copy-toast{
+bottom:24px;
+padding:11px 16px;
+font-size:.75rem;
+}
+}
