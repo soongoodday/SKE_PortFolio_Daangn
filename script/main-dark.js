@@ -2370,3 +2370,122 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 })();
+
+
+
+
+(() => {
+  const modal = document.getElementById('contactModal');
+  const confirmBtn = document.getElementById('contactModalConfirm');
+  const titleEl = document.getElementById('contactModalTitle');
+  const kickerEl = document.getElementById('contactModalKicker');
+  const descEl = document.getElementById('contactModalDesc');
+  const valueEl = document.getElementById('contactModalValue');
+  const guideEl = document.getElementById('contactModalGuide');
+
+  if (!modal || !confirmBtn) return;
+
+  let currentAction = '';
+  let currentCopy = '';
+  let lastFocusedEl = null;
+
+  function openModal({ type, label, value, action, copy }) {
+    lastFocusedEl = document.activeElement;
+    currentAction = action || '';
+    currentCopy = copy || value || '';
+
+    kickerEl.textContent = label || 'CONTACT';
+    valueEl.textContent = value || '';
+
+    if (type === 'email') {
+      titleEl.textContent = '복사할까요?';
+      descEl.textContent = '이메일 주소를 복사하고 메일 앱을 열까요?';
+      guideEl.textContent = '* 버튼을 누르면 복사 후 메일 앱이 열립니다.';
+      confirmBtn.textContent = '복사하고 열기';
+    } else {
+      titleEl.textContent = '복사할까요?';
+      descEl.textContent = '전화번호를 복사하고 전화 앱을 열까요?';
+      guideEl.textContent = '* 버튼을 누르면 복사 후 전화 앱이 열립니다.';
+      confirmBtn.textContent = '복사하고 열기';
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('contact-modal-open');
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('contact-modal-open');
+
+    if (lastFocusedEl) {
+      lastFocusedEl.focus();
+    }
+  }
+
+  async function copyText(text) {
+    if (!text) return false;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (error) {
+      try {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'absolute';
+        temp.style.left = '-9999px';
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        return true;
+      } catch (fallbackError) {
+        console.warn('복사 실패:', fallbackError);
+        return false;
+      }
+    }
+  }
+
+  async function copyAndOpen() {
+    await copyText(currentCopy);
+
+    if (currentAction) {
+      window.location.href = currentAction;
+    }
+
+    setTimeout(() => {
+      closeModal();
+    }, 120);
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.contact-trigger');
+    if (trigger) {
+      e.preventDefault();
+
+      openModal({
+        type: trigger.dataset.contactType,
+        label: trigger.dataset.contactLabel,
+        value: trigger.dataset.contactValue,
+        action: trigger.dataset.contactAction,
+        copy: trigger.dataset.contactCopy
+      });
+      return;
+    }
+
+    if (e.target.closest('[data-contact-close]')) {
+      closeModal();
+    }
+  });
+
+  confirmBtn.addEventListener('click', copyAndOpen);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+})();

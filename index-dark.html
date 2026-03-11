@@ -668,17 +668,27 @@
         </div>
 
         <div class="ending-side">
-          <a class="contact-card drop-section" href="tel:010-7922-7731" data-tilt data-tilt-strength="10">
+          <button class="contact-card drop-section contact-trigger" type="button" data-contact-type="phone"
+            data-contact-label="PHONE" data-contact-value="010-7922-7731" data-contact-action="tel:010-7922-7731"
+            data-contact-copy="010-7922-7731" data-tilt data-tilt-strength="10">
+
             <span class="card-icon">📞</span>
             <span class="card-label">PHONE</span>
             <span class="card-value">010-7922-7731</span>
-          </a>
 
-          <a class="contact-card drop-section" href="mailto:soongoodday@gmail.com" data-tilt data-tilt-strength="10">
-            <span class="card-icon">✉</span>
+          </button>
+
+
+          <button class="contact-card drop-section contact-trigger" type="button" data-contact-type="email"
+            data-contact-label="EMAIL" data-contact-value="soongoodday@gmail.com"
+            data-contact-action="mailto:soongoodday@gmail.com" data-contact-copy="soongoodday@gmail.com" data-tilt
+            data-tilt-strength="10">
+
+            <span class="card-icon">✉️</span>
             <span class="card-label">EMAIL</span>
             <span class="card-value">soongoodday@gmail.com</span>
-          </a>
+
+          </button>
 
           <div class="ending-links">
             <a class="ending-link-card drop-section" href="https://soongoodday.tistory.com/" target="_blank"
@@ -765,6 +775,82 @@
 
       <p class="imglb-hint">휠: 확대/축소 · 드래그: 이동 · 더블클릭: 확대</p>
     </figure>
+  </div>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+
+    <div class="contact-modal-backdrop" data-contact-close></div>
+
+    <article class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+
+      <button class="contact-modal-close" type="button" aria-label="닫기" data-contact-close>
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+
+      <div class="contact-modal-head">
+
+        <p class="contact-modal-kicker" id="contactModalKicker">
+
+          PHONE
+
+        </p>
+
+        <h3 class="contact-modal-title" id="contactModalTitle">
+
+          복사할까요?
+
+        </h3>
+
+        <p class="contact-modal-desc" id="contactModalDesc">
+
+          전화번호를 클립보드에 복사하고 전화 앱을 열까요?
+
+        </p>
+
+      </div>
+
+
+      <div class="contact-modal-value-wrap">
+
+        <div class="contact-modal-value" id="contactModalValue">
+
+          010-7922-7731
+
+        </div>
+
+      </div>
+
+
+      <p class="contact-modal-guide" id="contactModalGuide">
+
+        * 버튼을 누르면 복사 후 앱이 열립니다.
+
+      </p>
+
+
+      <div class="contact-modal-actions">
+
+        <button class="contact-modal-btn is-ghost" type="button" data-contact-close>
+
+          취소
+
+        </button>
+
+
+        <button class="contact-modal-btn is-primary" type="button" id="contactModalConfirm">
+
+          복사하고 열기
+
+        </button>
+
+      </div>
+
+    </article>
+
   </div>
 
   <script src="script/main-dark.js"></script>
