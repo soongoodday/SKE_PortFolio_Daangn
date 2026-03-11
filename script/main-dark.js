@@ -244,7 +244,7 @@ const projectData = {
     tags: ['UX Case Study', 'Service Redesign', 'UX Analysis'],
     image: 'images/daangn_mac_pixel.png',
     imageAlt: '당근 서비스 UX 분석 및 리디자인 미리보기',
-    figma: 'https://www.figma.com/design/GDPiVGtGj4u1bve0GXzwyx/%EB%8B%B9%EA%B7%BC-%EC%84%9C%EB%B9%84%EC%8A%A4-UX-%EB%B6%84%EC%84%9D-%EB%B0%8F-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=20-4&t=Sdf7UWmJHquy67QJ-1',
+    figma: 'https://www.figma.com/design/GDPiVGtGj4u1bve0GXzwyx/%EB%8B%B9%EA%B7%BC-%EC%84%9C%EB%B9%84%EC%8A%A4-UX-%EB%B6%84%EC%84%9D-%EB%B0%8F-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=20-4&t=Sdf7UWmJHquy67QJ-1'
   },
   nextlab: {
     title: '넥스트랩 웹페이지',
