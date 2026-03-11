@@ -233,6 +233,19 @@ const modalClose = modal?.querySelector('.modal-close');
 const workItems = document.querySelectorAll('[data-project]');
 
 const projectData = {
+    daangn: {
+    title: '당근 서비스',
+    category: 'MAIN QUEST • CASE STUDY',
+    date: '2026.02 (1주 프로젝트)',
+    status: '100% Complete',
+    description: '동네 기반 거래 경험을 더 직관적으로 개선했습니다. 당근 서비스의 사용자 탐색 흐름을 분석하고 상품 탐색 과정에서 정보를 빠르게 인지할 수 있도록 화면 구조를 재설계했습니다. 지역 기반 서비스 특성을 강조하기 위해 동네 선택 영역을 상단에서 더 명확하게 노출했으며, 상품 목록을 〈팝니다〉·〈삽니다〉·〈ALL〉 구조로 분리해 거래 목적에 따른 탐색 흐름을 정리했습니다. 또한 거래 완료 상품은 패턴 오버레이로 상태를 구분하고, ALL 화면에서는 태그 기반 탐색 구조를 통해 원하는 상품으로 빠르게 이동할 수 있도록 UX를 개선했습니다.',
+    role: 'UX 분석 · 문제 정의 · 서비스 리디자인 (100%)',
+    tools: ['Figma', 'ChatGPT'],
+    tags: ['UX Case Study', 'Service Redesign', 'UX Analysis'],
+    image: 'images/daangn_mac_pixel.png',
+    imageAlt: '당근 서비스 UX 분석 및 리디자인 미리보기',
+    figma: 'https://www.figma.com/design/GDPiVGtGj4u1bve0GXzwyx/%EB%8B%B9%EA%B7%BC-%EC%84%9C%EB%B9%84%EC%8A%A4-UX-%EB%B6%84%EC%84%9D-%EB%B0%8F-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=20-4&t=Sdf7UWmJHquy67QJ-1',
+  },
   nextlab: {
     title: '넥스트랩 웹페이지',
     category: 'MAIN QUEST • TEAM PROJECT',
